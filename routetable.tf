@@ -25,7 +25,7 @@ resource "aws_route_table" "private" {
 }
 
 resource "aws_route" "private-natgw" {
-  route_table_id         = aws_subnet.subnets[1].id
+  route_table_id         = aws_route_table.private.id
   destination_cidr_block = var.des-all
   nat_gateway_id         = aws_nat_gateway.gw.id
 }
